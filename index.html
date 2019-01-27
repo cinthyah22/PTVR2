@@ -1,0 +1,25 @@
+<html>
+    <header>
+         <script src="https://rawgit.com/aframevr/aframe/master/dist/aframe-master.js"></script>
+       </header>
+       <body>
+         <a-scene>
+             <a-asset>
+               <img id = "football-background" src = "football.jpg"/>
+               <a-asset-item id = "coach-mtl" src = "football-player.mtl"></a-asset-item>
+               <a-asset-item id = "coach-obj" src = "football-player.obj"></a-asset-item>
+               </a-asset>
+               <a-entity camera="" look-controls="" position="0 1.5 0" rotation=""></a-entity>
+               <a-entity id="laser" laser-controls="hand: right" raycaster="showLine:true;" line="opacity:1.0;" daydream-controls="" gearvr-controls="" oculus-go-controls="" oculus-touch-controls="" vive-controls="" vive-focus-controls="" windows-motion-controls="" visible=""></a-entity>
+               <a-sky id="da-sky" material = "src: #background"></a-sky>
+               <a-entity event-set_makevisable = "_event: mouseenter; visible:true"></a-entity>
+               <a-entity id = "football" obj-model = "obj: #coach-obj; mtl: #coach-mtl" scale="1 1 1" position = "-5 5 15" visible = "false">
+                   <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
+               </a-entity>
+               <script>
+                 document.getElementById('da-sky').setAttribute('material', 'src: #football-background')
+                 document.getElementById('football').setAttribute('visible', 'true')
+                 </script>
+               </a-scene>
+           </body>
+       </html>
