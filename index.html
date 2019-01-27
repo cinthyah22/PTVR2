@@ -5,21 +5,21 @@
        <body>
          <a-scene>
              <a-asset>
-               <img id = "football-background" src = "football.jpg"/>
-               <a-asset-item id = "coach-mtl" src = "football-player.mtl"></a-asset-item>
-               <a-asset-item id = "coach-obj" src = "football-player.obj"></a-asset-item>
-               </a-asset>
-               <a-entity camera="" look-controls="" position="0 1.5 0" rotation=""></a-entity>
-               <a-entity id="laser" laser-controls="hand: right" raycaster="showLine:true;" line="opacity:1.0;" daydream-controls="" gearvr-controls="" oculus-go-controls="" oculus-touch-controls="" vive-controls="" vive-focus-controls="" windows-motion-controls="" visible=""></a-entity>
-               <a-sky id="da-sky" material = "src: #background"></a-sky>
-               <a-entity event-set_makevisable = "_event: mouseenter; visible:true"></a-entity>
-               <a-entity id = "football" obj-model = "obj: #coach-obj; mtl: #coach-mtl" scale="1 1 1" position = "-5 5 15" visible = "false">
-                   <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
-               </a-entity>
-               <script>
-                 document.getElementById('da-sky').setAttribute('material', 'src: #football-background')
-                 document.getElementById('football').setAttribute('visible', 'true')
-                 </script>
-               </a-scene>
-           </body>
-       </html>
+               <img id = "space-background" src = "space.jpg"/>
+               <a-asset-item id = "spaceship-obj" src = "player-ship.obj"></a-asset-item>
+               <a-asset-item id = "spaceship-mtl" src = "player-ship.mtl"></a-asset-item>
+             </a-asset>
+             <a-entity camera="" look-controls="" position="0 1.5 0" rotation=""></a-entity>
+             <a-entity sphere-collider="objects: a-box" super-hands hand-controls="left"></a-entity>
+             <a-entity sphere-collider="objects: a-box" super-hands hand-controls="right"></a-entity>
+
+             <a-sky id="da-sky" material = "src: #space-background"></a-sky>
+             <a-entity id = "spaceship" obj-model = "obj: #spaceship-obj; mtl: #spaceship-mtl" scale="0.5 0.5 0.5" position = "-29 -22 29" visible = "false" begin="click">
+                 <a-animation fill = "forwards" attribute="visible" begin="click" to="false"></a-animation>
+             </a-entity>
+             <script>
+             document.getElementById('spaceship').setAttribute('visible', 'true')
+             </script>
+           </a-scene>
+       </body>
+   </html>
